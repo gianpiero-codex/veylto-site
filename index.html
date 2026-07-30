@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Veylto is a local-first desktop workspace for Etsy sellers, built to streamline listing, SEO, social and market workflows while keeping sellers in control.">
-  <meta name="theme-color" content="#111827">
-  <title>Veylto — Seller workflows, under control</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Veylto is AI-powered desktop software that turns product images and mockups into seller-reviewed Etsy listing drafts, SEO improvements, social content and market research.">
+  <meta name="theme-color" content="#0b1224">
+  <title>Veylto — AI listing workflows for Etsy sellers</title>
+  <link rel="icon" href="assets/veylto_icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="language.css">
 </head>
@@ -16,18 +16,19 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="index.html" aria-label="Veylto home">
-        <span class="brand-mark" aria-hidden="true">V</span>
+        <img class="brand-logo" src="assets/veylto_icon.png" alt="">
         <span>Veylto</span>
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-i18n="menu">Menu</button>
       <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="#ai-workflow" data-i18n="nav_ai">AI workflow</a>
         <a href="#product" data-i18n="nav_product">Product</a>
         <a href="#principles" data-i18n="nav_principles">Principles</a>
         <a href="#security" data-i18n="nav_security">Security</a>
-        <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
-        <a href="terms.html" data-i18n="nav_terms">Terms</a>
+        <a href="privacy.html" data-localized-link data-i18n="nav_privacy">Privacy</a>
+        <a href="terms.html" data-localized-link data-i18n="nav_terms">Terms</a>
         <label class="language-selector-wrap">
-          <span class="sr-only">Language</span>
+          <span class="sr-only" data-i18n="language">Language</span>
           <select id="language-selector" class="language-selector" aria-label="Language">
             <option value="en">EN</option>
             <option value="it">IT</option>
@@ -44,112 +45,91 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero_eyebrow">Independent software by Veylto Labs · Desktop workspace for Etsy sellers</p>
-          <h1 data-i18n="hero_title">Move faster without giving up control.</h1>
-          <p class="hero-text" data-i18n="hero_text">Veylto brings listing workflows, SEO review, shop insights, social planning and market research into one local-first desktop workspace.</p>
+          <p class="eyebrow" data-i18n="hero_eyebrow">Veylto Labs · AI desktop software for Etsy sellers</p>
+          <h1 data-i18n="hero_title">From product images to Etsy-ready listing drafts.</h1>
+          <p class="hero-text" data-i18n="hero_text">Veylto analyzes product images and mockups, generates titles, descriptions and tags with your selected AI provider, validates the result and keeps you in control before an Etsy draft is created.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#product" data-i18n="hero_primary">Explore the product</a>
+            <a class="button button-primary" href="#ai-workflow" data-i18n="hero_primary">See the AI workflow</a>
             <a class="button button-secondary" href="mailto:support@veyltolabs.com" data-i18n="hero_support">Contact support</a>
           </div>
           <p class="availability"><span class="status-dot" aria-hidden="true"></span><span data-i18n="availability">Currently in private development</span></p>
         </div>
 
-        <div class="product-frame" aria-label="Illustrative Veylto dashboard preview">
+        <div class="product-frame" aria-label="Illustrative Veylto AI listing workflow preview">
           <div class="window-bar">
             <span></span><span></span><span></span>
-            <strong data-i18n="mock_workspace">Veylto workspace</strong>
+            <strong data-i18n="mock_workspace">Veylto · AI Listing Generator</strong>
           </div>
           <div class="app-shell">
             <aside class="mock-sidebar" aria-hidden="true">
-              <div class="mock-logo">V</div>
+              <img class="mock-logo" src="assets/veylto_icon.png" alt="">
               <i class="active"></i><i></i><i></i><i></i><i></i><i></i>
             </aside>
             <div class="mock-main">
               <div class="mock-heading">
-                <div><small data-i18n="mock_shop_overview">SHOP OVERVIEW</small><b data-i18n="mock_good_morning">Good morning</b></div>
-                <span data-i18n="mock_connected">Connected</span>
+                <div><small data-i18n="mock_section">AI LISTING WORKFLOW</small><b data-i18n="mock_title">Build a listing from images</b></div>
+                <span data-i18n="mock_status">Review required</span>
               </div>
               <div class="metric-row">
-                <article><small data-i18n="mock_listings">Listings</small><strong>128</strong><em data-i18n="mock_synced">Synced</em></article>
-                <article><small data-i18n="mock_orders">Orders</small><strong>24</strong><em data-i18n="mock_last30">Last 30 days</em></article>
-                <article><small data-i18n="mock_seo_reviews">SEO reviews</small><strong>17</strong><em data-i18n="mock_ready">Ready</em></article>
+                <article><small data-i18n="mock_images">Images</small><strong>6</strong><em data-i18n="mock_analyzed">Analyzed</em></article>
+                <article><small data-i18n="mock_draft">AI draft</small><strong>1</strong><em data-i18n="mock_generated">Generated</em></article>
+                <article><small data-i18n="mock_validation">Validation</small><strong>92</strong><em data-i18n="mock_passed">Passed</em></article>
               </div>
-              <div class="chart-card">
-                <div class="chart-title"><b data-i18n="mock_top_listings">Top listings</b><small data-i18n="mock_views">Views</small></div>
-                <div class="bars" aria-hidden="true">
-                  <i style="--h:48%"></i><i style="--h:71%"></i><i style="--h:58%"></i><i style="--h:86%"></i><i style="--h:66%"></i><i style="--h:94%"></i><i style="--h:79%"></i>
-                </div>
+              <div class="ai-result-card">
+                <div class="chart-title"><b data-i18n="mock_result">Generated listing</b><small data-i18n="mock_provider">Provider and model visible</small></div>
+                <div class="ai-result-title" data-i18n="mock_listing_title">Modern botanical wall art set for calm interiors</div>
+                <div class="tag-row" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                <div class="ai-result-lines" aria-hidden="true"><span></span><span></span><span></span></div>
               </div>
-              <div class="list-card">
-                <span></span><span></span><span></span>
-              </div>
+              <div class="review-strip"><span data-i18n="mock_review">Validate → Review → Create Etsy draft</span><b data-i18n="mock_control">Seller controlled</b></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="product" class="section">
+    <section id="ai-workflow" class="section ai-workflow-section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="product_eyebrow">One workspace</p>
-          <h2 data-i18n="product_title">Built around real seller workflows.</h2>
-          <p data-i18n="product_intro">Veylto is designed to reduce repetitive work while keeping every important decision visible and reviewable.</p>
+          <p class="eyebrow" data-i18n="ai_eyebrow">AI listing generation</p>
+          <h2 data-i18n="ai_title">AI does the heavy work. You keep the final decision.</h2>
+          <p data-i18n="ai_intro">The selected product type, images and mockups guide the draft. Veylto then checks the output before any Etsy write action becomes available.</p>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow-step"><span>01</span><h3 data-i18n="step_1_title">Provide product context</h3><p data-i18n="step_1_desc">Choose the physical or digital product type, seller details, product images and mockups.</p></article>
+          <article class="workflow-step"><span>02</span><h3 data-i18n="step_2_title">Generate with AI</h3><p data-i18n="step_2_desc">Create a title, description, tags and listing content with the provider and model configured by the seller.</p></article>
+          <article class="workflow-step"><span>03</span><h3 data-i18n="step_3_title">Validate the listing</h3><p data-i18n="step_3_desc">Check semantic consistency, product-type rules, prohibited wording and missing information.</p></article>
+          <article class="workflow-step"><span>04</span><h3 data-i18n="step_4_title">Review before Etsy</h3><p data-i18n="step_4_desc">See the result, correct it when necessary and explicitly confirm creation of the Etsy draft.</p></article>
+        </div>
+        <div class="provider-note"><strong data-i18n="provider_note_title">No silent AI switching.</strong> <span data-i18n="provider_note_text">Veylto is designed to use the selected provider and model and to show that information with generated output.</span></div>
+      </div>
+    </section>
+
+    <section id="product" class="section product-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="product_eyebrow">One controlled workspace</p>
+          <h2 data-i18n="product_title">More than a text generator.</h2>
+          <p data-i18n="product_intro">Veylto connects AI generation with the practical seller workflows that come before and after a listing draft.</p>
         </div>
         <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-number">01</span>
-            <h3 data-i18n="feature_etsy_title">Etsy workspace</h3>
-            <p data-i18n="feature_etsy_desc">Review shop data, prepare listings, manage drafts and keep write actions explicit.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">02</span>
-            <h3 data-i18n="feature_seo_title">SEO review</h3>
-            <p data-i18n="feature_seo_desc">Compare current listing content with suggested improvements before applying any change.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">03</span>
-            <h3 data-i18n="feature_social_title">Social Studio</h3>
-            <p data-i18n="feature_social_desc">Prepare platform-specific content and keep drafts, queue and publishing history organized.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">04</span>
-            <h3 data-i18n="feature_market_title">Market intelligence</h3>
-            <p data-i18n="feature_market_desc">Structure research, evidence and reporting without mixing unsupported claims into seller decisions.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">05</span>
-            <h3 data-i18n="feature_provider_title">Provider choice</h3>
-            <p data-i18n="feature_provider_desc">Use supported AI providers according to your configuration, with provider and model visibility.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">06</span>
-            <h3 data-i18n="feature_local_title">Local-first control</h3>
-            <p data-i18n="feature_local_desc">Keep the desktop application, local data and review workflow at the center of the experience.</p>
-          </article>
+          <article class="feature-card"><span class="feature-number">01</span><h3 data-i18n="feature_ai_title">AI Listing Generator</h3><p data-i18n="feature_ai_desc">Generate Etsy listing content from product context, images and mockups, then validate it before draft creation.</p></article>
+          <article class="feature-card"><span class="feature-number">02</span><h3 data-i18n="feature_seo_title">AI SEO review</h3><p data-i18n="feature_seo_desc">Compare current listing content with AI suggestions, scores and improvements before applying changes.</p></article>
+          <article class="feature-card"><span class="feature-number">03</span><h3 data-i18n="feature_etsy_title">Etsy workspace</h3><p data-i18n="feature_etsy_desc">Review shop data, prepare listings, manage drafts and keep every Etsy write action explicit.</p></article>
+          <article class="feature-card"><span class="feature-number">04</span><h3 data-i18n="feature_social_title">Social Studio</h3><p data-i18n="feature_social_desc">Generate platform-specific content and organize drafts, queue, publishing and history.</p></article>
+          <article class="feature-card"><span class="feature-number">05</span><h3 data-i18n="feature_market_title">Market intelligence</h3><p data-i18n="feature_market_desc">Structure research, evidence and reports to support product and seller decisions.</p></article>
+          <article class="feature-card"><span class="feature-number">06</span><h3 data-i18n="feature_control_title">Provider and local control</h3><p data-i18n="feature_control_desc">Keep provider, model, local data, AI drafts and Etsy-applied values clearly distinguishable.</p></article>
         </div>
       </div>
     </section>
 
     <section id="principles" class="section section-dark">
       <div class="container principles-grid">
-        <div>
-          <p class="eyebrow" data-i18n="principles_eyebrow">Product principles</p>
-          <h2 data-i18n="principles_title">Automation should not hide consequences.</h2>
-        </div>
+        <div><p class="eyebrow" data-i18n="principles_eyebrow">Product principles</p><h2 data-i18n="principles_title">Automation should not hide consequences.</h2></div>
         <div class="principle-list">
-          <article>
-            <h3 data-i18n="principle_review_title">Review before write</h3>
-            <p data-i18n="principle_review_desc">Changes that affect Etsy are designed to remain visible, confirmed and attributable.</p>
-          </article>
-          <article>
-            <h3 data-i18n="principle_provider_title">No silent provider switching</h3>
-            <p data-i18n="principle_provider_desc">The selected provider and model should be the ones actually used for the requested workflow.</p>
-          </article>
-          <article>
-            <h3 data-i18n="principle_boundaries_title">Clear data boundaries</h3>
-            <p data-i18n="principle_boundaries_desc">Local data, AI drafts and Etsy-applied values should remain distinguishable in the interface.</p>
-          </article>
+          <article><h3 data-i18n="principle_review_title">Review before write</h3><p data-i18n="principle_review_desc">Changes that affect Etsy remain visible, confirmed and attributable.</p></article>
+          <article><h3 data-i18n="principle_provider_title">The selected AI provider is the real provider</h3><p data-i18n="principle_provider_desc">Provider and model selection must be respected rather than silently replaced.</p></article>
+          <article><h3 data-i18n="principle_boundaries_title">Clear data boundaries</h3><p data-i18n="principle_boundaries_desc">Local values, AI drafts, reviewed content and Etsy-applied values remain distinguishable.</p></article>
         </div>
       </div>
     </section>
@@ -159,25 +139,21 @@
         <div class="security-card">
           <p class="eyebrow" data-i18n="security_eyebrow">Security and platform respect</p>
           <h2 data-i18n="security_title">Designed for authorized seller access.</h2>
-          <p data-i18n="security_intro">Veylto uses Etsy OAuth for permitted shop access. It does not scrape Etsy, ask sellers to share API credentials, bypass Etsy checkout, or claim endorsement by Etsy.</p>
-          <a class="text-link" href="privacy.html" data-i18n="security_link">Read the privacy overview →</a>
+          <p data-i18n="security_intro">Veylto uses Etsy OAuth for permitted shop access. It does not scrape Etsy, request seller API credentials, bypass Etsy checkout or claim endorsement by Etsy.</p>
+          <a class="text-link" href="privacy.html" data-localized-link data-i18n="security_link">Read the privacy policy →</a>
         </div>
         <div class="checklist" aria-label="Security principles">
-          <div><span>✓</span><p><strong data-i18n="security_oauth_title">OAuth authorization</strong><br><span data-i18n="security_oauth_desc">Access is tied to permissions granted by the seller.</span></p></div>
-          <div><span>✓</span><p><strong data-i18n="security_write_title">Explicit write actions</strong><br><span data-i18n="security_write_desc">Seller-impacting changes require a clear action.</span></p></div>
-          <div><span>✓</span><p><strong data-i18n="security_scraping_title">No scraping</strong><br><span data-i18n="security_scraping_desc">Platform data is accessed through supported interfaces.</span></p></div>
-          <div><span>✓</span><p><strong data-i18n="security_revocable_title">Revocable access</strong><br><span data-i18n="security_revocable_desc">Connected access can be disconnected or revoked.</span></p></div>
+          <div><span class="check-icon">✓</span><p><strong data-i18n="security_oauth_title">OAuth authorization</strong><br><span class="check-copy" data-i18n="security_oauth_desc">Access depends on permissions granted by the seller.</span></p></div>
+          <div><span class="check-icon">✓</span><p><strong data-i18n="security_write_title">Explicit Etsy write actions</strong><br><span class="check-copy" data-i18n="security_write_desc">Seller-impacting changes require a clear action, confirmation and progress feedback.</span></p></div>
+          <div><span class="check-icon">✓</span><p><strong data-i18n="security_scraping_title">No scraping</strong><br><span class="check-copy" data-i18n="security_scraping_desc">Platform data is accessed through supported interfaces.</span></p></div>
+          <div><span class="check-icon">✓</span><p><strong data-i18n="security_revocable_title">Revocable access</strong><br><span class="check-copy" data-i18n="security_revocable_desc">Connected access can be disconnected or revoked.</span></p></div>
         </div>
       </div>
     </section>
 
     <section class="cta-section">
       <div class="container cta-card">
-        <div>
-          <p class="eyebrow" data-i18n="cta_eyebrow">Private development</p>
-          <h2 data-i18n="cta_title">Veylto is being prepared for controlled testing.</h2>
-          <p data-i18n="cta_text">Public availability, pricing and production support details will be published after validation is complete.</p>
-        </div>
+        <div><p class="eyebrow" data-i18n="cta_eyebrow">Private development</p><h2 data-i18n="cta_title">Veylto is being prepared for controlled testing.</h2><p data-i18n="cta_text">Public availability, pricing and production support details will be published after product and platform validation.</p></div>
         <a class="button button-light" href="mailto:support@veyltolabs.com" data-i18n="cta_button">Contact Veylto</a>
       </div>
     </section>
@@ -186,20 +162,13 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a class="brand footer-brand" href="index.html"><span class="brand-mark">V</span><span>Veylto</span></a>
-        <p data-i18n="footer_tagline">Local-first desktop software for Etsy seller workflows.</p>
+        <a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/veylto_icon.png" alt=""><span>Veylto</span></a>
+        <p data-i18n="footer_tagline">AI-powered, local-first desktop software for Etsy seller workflows.</p>
         <p data-i18n="footer_brand_statement">Veylto is developed under the independent Veylto Labs product brand.</p>
       </div>
-      <div class="footer-links">
-        <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
-        <a href="terms.html" data-i18n="footer_terms">Terms of Service</a>
-        <a href="mailto:support@veyltolabs.com" data-i18n="footer_support">Support</a>
-      </div>
+      <div class="footer-links"><a href="privacy.html" data-localized-link data-i18n="footer_privacy">Privacy Policy</a><a href="terms.html" data-localized-link data-i18n="footer_terms">Terms of Service</a><a href="mailto:support@veyltolabs.com" data-i18n="footer_support">Support</a></div>
     </div>
-    <div class="container legal-footer">
-      <p data-i18n="trademark">The term “Etsy” is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p>
-      <p>© <span data-year>2026</span> Veylto Labs.</p>
-    </div>
+    <div class="container legal-footer"><p data-i18n="trademark">The term “Etsy” is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p><p>© <span data-year>2026</span> Veylto Labs.</p></div>
   </footer>
   <script src="script.js"></script>
 </body>
