@@ -4,78 +4,95 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Veylto Privacy Policy.">
+  <meta name="theme-color" content="#0b1224">
   <title>Privacy Policy — Veylto</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/veylto_icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="language.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-legal-page="privacy">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html"><span class="brand-mark">V</span><span>Veylto</span></a>
+      <a class="brand" href="index.html" data-localized-link aria-label="Veylto home"><img class="brand-logo" src="assets/veylto_icon.png" alt=""><span>Veylto</span></a>
       <nav class="primary-nav legal-nav" aria-label="Legal navigation">
-        <a href="index.html">Home</a><a href="terms.html">Terms</a>
+        <a href="index.html" data-localized-link data-i18n="home">Home</a>
+        <a href="terms.html" data-localized-link data-i18n="terms">Terms</a>
+        <label class="language-selector-wrap legal-language">
+          <span class="sr-only" data-i18n="language">Language</span>
+          <select id="language-selector" class="language-selector" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="it">IT</option>
+            <option value="es">ES</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+          </select>
+        </label>
       </nav>
     </div>
   </header>
+
   <main id="main" class="legal-main">
     <article class="container legal-document">
-      <p class="eyebrow">Legal</p>
-      <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: July 30, 2026</p>
-      <div class="notice"><strong>Development status.</strong> Veylto is currently in private development. This policy describes the intended handling of information during controlled testing and will be reviewed before public release.</div>
-      <div class="notice"><strong>Language.</strong> This legal document is currently published in English. Translated marketing content does not replace or modify this version.</div>
+      <p class="eyebrow" data-i18n="legal">Legal</p>
+      <h1 data-i18n="privacy_title">Privacy Policy</h1>
+      <p class="legal-updated" data-i18n="updated">Last updated: July 30, 2026</p>
+      <div class="notice"><strong data-i18n="development_label">Development status.</strong> <span data-i18n="privacy_development">Veylto is currently in private development. This policy describes the intended handling of information during controlled testing and will be reviewed before public release.</span></div>
+      <div class="notice"><strong data-i18n="translation_label">Translations.</strong> <span data-i18n="translation_notice">Translations are provided for convenience. If versions differ during private development, the English version controls.</span></div>
 
-      <h2>1. Overview</h2>
-      <p>Veylto is a local-first desktop application developed under the independent Veylto Labs product brand. It is intended to help Etsy sellers manage authorized shop workflows. This policy explains what information may be processed, why it is used, and the choices available to users.</p>
+      <h2 data-i18n="privacy_h1">1. Overview</h2>
+      <p data-i18n="privacy_p1">Veylto is a local-first desktop application developed under the independent Veylto Labs product brand. It is intended to help Etsy sellers manage authorized shop workflows. This policy explains what information may be processed, why it is used and the choices available to users.</p>
 
-      <h2>2. Information processed</h2>
-      <p>Depending on the features used, Veylto may process:</p>
+      <h2 data-i18n="privacy_h2">2. Information processed</h2>
+      <p data-i18n="privacy_p2">Depending on the features used, Veylto may process:</p>
       <ul>
-        <li>account and shop identifiers returned through Etsy OAuth;</li>
-        <li>listing, inventory, order and shop performance data authorized by the user;</li>
-        <li>application settings, workflow history and locally generated reports;</li>
-        <li>technical diagnostics needed to operate, secure or troubleshoot the application;</li>
-        <li>content submitted by the user to supported AI providers.</li>
+        <li data-i18n="privacy_li21">account and shop identifiers returned through Etsy OAuth;</li>
+        <li data-i18n="privacy_li22">listing, inventory, order and shop performance data authorized by the user;</li>
+        <li data-i18n="privacy_li23">product images, mockups, prompts and other content submitted for AI-assisted workflows;</li>
+        <li data-i18n="privacy_li24">application settings, workflow history and locally generated reports;</li>
+        <li data-i18n="privacy_li25">technical diagnostics needed to operate, secure or troubleshoot the application.</li>
       </ul>
 
-      <h2>3. Etsy authorization</h2>
-      <p>Private Etsy data is accessed only after the seller authorizes the requested permissions through Etsy OAuth. Veylto does not ask users to share Etsy passwords or API credentials. Access can be revoked through the relevant Etsy account controls and, where available, through Veylto.</p>
+      <h2 data-i18n="privacy_h3">3. Etsy authorization</h2>
+      <p data-i18n="privacy_p3">Private Etsy data is accessed only after the seller authorizes the requested permissions through Etsy OAuth. Veylto does not ask users to share Etsy passwords or API credentials. Access can be revoked through the relevant Etsy account controls and, where available, through Veylto.</p>
 
-      <h2>4. Purpose of processing</h2>
-      <p>Information is processed to provide requested features, display shop data, prepare seller-reviewed changes, generate reports, maintain application state, diagnose failures and protect the service from misuse.</p>
+      <h2 data-i18n="privacy_h4">4. Purpose of processing</h2>
+      <p data-i18n="privacy_p4">Information is processed to provide requested features, analyze seller-provided images and mockups, generate and validate AI-assisted listing content, display shop data, prepare seller-reviewed changes, generate reports, maintain application state, diagnose failures and protect the service from misuse.</p>
 
-      <h2>5. Local storage and service infrastructure</h2>
-      <p>Veylto is designed around a desktop application and local workflow storage. Some production functions may require secure service infrastructure, including OAuth coordination, credential protection, licensing, rate limiting and controlled Etsy API access. Final production architecture and retention periods will be documented before public release.</p>
+      <h2 data-i18n="privacy_h5">5. Local storage and service infrastructure</h2>
+      <p data-i18n="privacy_p5">Veylto is designed around a desktop application and local workflow storage. Some production functions may require secure service infrastructure, including OAuth coordination, credential protection, licensing, rate limiting and controlled Etsy API access. Final production architecture and retention periods will be documented before public release.</p>
 
-      <h2>6. AI providers</h2>
-      <p>When a user selects an external AI provider, relevant input may be sent to that provider to complete the requested task. Provider processing is governed by the provider’s own terms and privacy practices. Veylto is designed to show the selected provider and model rather than silently substituting another provider.</p>
+      <h2 data-i18n="privacy_h6">6. AI providers</h2>
+      <p data-i18n="privacy_p6">When a user selects an external AI provider, relevant input may be sent to that provider to complete the requested task. This may include text, product context, images or mockups selected by the user. Provider processing is governed by the provider’s own terms and privacy practices. Veylto is designed to show the selected provider and model rather than silently substituting another provider.</p>
 
-      <h2>7. Sharing</h2>
-      <p>Veylto does not sell personal information. Information may be shared only with service providers needed to deliver requested functionality, comply with law, protect rights and security, or complete a business transition subject to appropriate safeguards.</p>
+      <h2 data-i18n="privacy_h7">7. Sharing</h2>
+      <p data-i18n="privacy_p7">Veylto does not sell personal information. Information may be shared only with service providers needed to deliver requested functionality, comply with law, protect rights and security, or complete a business transition subject to appropriate safeguards.</p>
 
-      <h2>8. Retention and deletion</h2>
-      <p>Locally stored information remains under the user’s control unless a feature states otherwise. Service-side information, where required, will be retained only for the period necessary for operation, security, legal compliance and dispute resolution. Users may request deletion of service-side personal information by contacting support.</p>
+      <h2 data-i18n="privacy_h8">8. Retention and deletion</h2>
+      <p data-i18n="privacy_p8">Locally stored information remains under the user’s control unless a feature states otherwise. Service-side information, where required, will be retained only for the period necessary for operation, security, legal compliance and dispute resolution. Users may request deletion of service-side personal information by contacting support.</p>
 
-      <h2>9. Security</h2>
-      <p>Reasonable technical and organizational measures are used or planned to protect information. No system can guarantee absolute security. Users remain responsible for protecting their device, account access and local backups.</p>
+      <h2 data-i18n="privacy_h9">9. Security</h2>
+      <p data-i18n="privacy_p9">Reasonable technical and organizational measures are used or planned to protect information. No system can guarantee absolute security. Users remain responsible for protecting their device, account access, provider credentials and local backups.</p>
 
-      <h2>10. International processing</h2>
-      <p>Service providers may process information in countries other than the user’s country. Appropriate safeguards will be used where required by applicable law.</p>
+      <h2 data-i18n="privacy_h10">10. International processing</h2>
+      <p data-i18n="privacy_p10">Service providers may process information in countries other than the user’s country. Appropriate safeguards will be used where required by applicable law.</p>
 
-      <h2>11. User rights</h2>
-      <p>Depending on location, users may have rights to access, correct, delete, restrict or object to processing of personal information. Requests can be sent to <a href="mailto:support@veyltolabs.com">support@veyltolabs.com</a>.</p>
+      <h2 data-i18n="privacy_h11">11. User rights</h2>
+      <p><span data-i18n="privacy_p11">Depending on location, users may have rights to access, correct, delete, restrict or object to processing of personal information. Requests can be sent to</span> <a href="mailto:support@veyltolabs.com">support@veyltolabs.com</a>.</p>
 
-      <h2>12. Changes</h2>
-      <p>This policy may be updated as Veylto’s production architecture and features are finalized. The latest version will be published on this page with a revised date.</p>
+      <h2 data-i18n="privacy_h12">12. Changes</h2>
+      <p data-i18n="privacy_p12">This policy may be updated as Veylto’s production architecture and features are finalized. The latest version will be published on this page with a revised date.</p>
 
-      <h2>13. Contact</h2>
-      <p>Privacy questions may be sent to <a href="mailto:support@veyltolabs.com">support@veyltolabs.com</a>.</p>
+      <h2 data-i18n="privacy_h13">13. Contact</h2>
+      <p><span data-i18n="privacy_p13">Privacy questions may be sent to</span> <a href="mailto:support@veyltolabs.com">support@veyltolabs.com</a>.</p>
 
-      <div class="trademark-notice">The term “Etsy” is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</div>
+      <div class="trademark-notice" data-i18n="trademark">The term “Etsy” is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</div>
     </article>
   </main>
-  <footer class="site-footer compact-footer"><div class="container legal-footer"><p>© <span data-year>2026</span> Veylto Labs.</p><p><a href="index.html">Home</a> · <a href="terms.html">Terms</a></p></div></footer>
+
+  <footer class="site-footer compact-footer">
+    <div class="container legal-footer"><p>© <span data-year>2026</span> Veylto Labs.</p><p><a href="index.html" data-localized-link data-i18n="home">Home</a> · <a href="terms.html" data-localized-link data-i18n="terms">Terms</a></p></div>
+  </footer>
   <script src="legal.js"></script>
 </body>
 </html>
