@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Purchase Veylto securely with card, PayPal and supported local payment methods through Paddle Checkout.">
+  <meta name="theme-color" content="#0b1224">
+  <title>Buy Veylto — Secure checkout</title>
+  <link rel="icon" href="assets/veylto_icon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="checkout.css">
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Veylto home">
+        <img class="brand-logo" src="assets/veylto_icon.png" alt="">
+        <span>Veylto</span>
+      </a>
+      <nav class="primary-nav" aria-label="Purchase navigation">
+        <a href="index.html">Product</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:support@veyltolabs.com">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="purchase-main">
+    <div class="container">
+      <section class="purchase-hero">
+        <p class="eyebrow">Veylto desktop software</p>
+        <h1>Secure purchase. Immediate license provisioning.</h1>
+        <p>Complete your purchase using Paddle Checkout. Card details, PayPal credentials and supported wallets are handled directly by Paddle; Veylto never receives or stores your payment credentials.</p>
+      </section>
+
+      <div class="purchase-grid">
+        <aside class="purchase-card">
+          <p class="eyebrow">One-time desktop license</p>
+          <h2>Veylto</h2>
+          <p class="purchase-note">The final localized price, applicable taxes and available payment methods are shown securely inside checkout.</p>
+          <ul class="purchase-list">
+            <li>Desktop workflow for Etsy sellers</li>
+            <li>AI listing generation and validation</li>
+            <li>SEO review and seller-controlled Etsy actions</li>
+            <li>Social Studio and market workflows</li>
+            <li>Secure activation through the Veylto backend</li>
+          </ul>
+          <div class="payment-badges" aria-label="Supported payment methods">
+            <span>Card</span><span>PayPal</span><span>Apple Pay</span><span>Google Pay</span>
+          </div>
+          <p class="secure-line"><strong>Payment security:</strong> checkout is hosted inside Paddle's secure payment frame.</p>
+          <p class="purchase-note">Veylto uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p>
+        </aside>
+
+        <section class="checkout-card" aria-labelledby="checkout-title">
+          <p class="eyebrow">Secure checkout</p>
+          <h2 id="checkout-title">Complete your purchase</h2>
+          <p class="checkout-status" data-checkout-status data-tone="neutral">Loading secure checkout…</p>
+          <div class="checkout-container" aria-live="polite"></div>
+
+          <section class="license-panel" data-license-panel hidden aria-live="polite">
+            <p class="eyebrow">Payment verified</p>
+            <h2>Your Veylto license</h2>
+            <p>Copy this activation key and keep it in a safe place. Veylto will ask for it during product activation.</p>
+            <code class="license-key" data-license-key></code>
+            <button class="button button-primary" type="button" data-copy-license>Copy license key</button>
+            <p class="license-meta">Paddle transaction: <span data-transaction-id></span></p>
+          </section>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/veylto_icon.png" alt=""><span>Veylto</span></a>
+        <p>AI-powered, local-first desktop software for Etsy seller workflows.</p>
+      </div>
+      <div class="footer-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="mailto:support@veyltolabs.com">Support</a></div>
+    </div>
+    <div class="container legal-footer"><p>The term “Etsy” is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p><p>© 2026 Veylto Labs.</p></div>
+  </footer>
+
+  <script src="checkout-config.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>
