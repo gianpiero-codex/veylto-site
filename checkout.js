@@ -2,6 +2,8 @@
   "use strict";
 
   const config = window.VEYLTO_CHECKOUT_CONFIG || {};
+  const i18n = window.VEYLTO_PURCHASE_I18N || {};
+  const t = key => typeof i18n.t === "function" ? i18n.t(key) : key;
   const status = document.querySelector("[data-checkout-status]");
   const licensePanel = document.querySelector("[data-license-panel]");
   const licenseKey = document.querySelector("[data-license-key]");
@@ -37,10 +39,7 @@
 
   if (!configured) {
     if (frame) frame.hidden = true;
-    setStatus(
-      "Sandbox checkout is ready but not configured yet. Add the Paddle sandbox client token, price ID and local backend URL before testing.",
-      "warning"
-    );
+    setStatus(t("checkoutNotConfigured"), "warning");
     return;
   }
 
@@ -51,7 +50,7 @@
     if (licenseKey) licenseKey.textContent = payload.licenseKey;
     if (transactionNode) transactionNode.textContent = payload.transactionId || "";
     if (licensePanel) licensePanel.hidden = false;
-    setStatus("Payment verified. Your Veylto license is ready.", "success");
+    setStatus(t("paymentVerified"), "success");
     return true;
   };
 
@@ -79,10 +78,10 @@
           const payload = await response.json();
           if (showFulfillment(payload)) return;
         } else if (response.status === 410) {
-          setStatus("The secure license retrieval window has expired. Contact support with the transaction ID below.", "warning");
+          setStatus(t("retrievalExpired"), "warning");
           return;
         } else if (response.status === 400) {
-          setStatus("The secure checkout reference is no longer valid. Contact support with the transaction ID below.", "warning");
+          setStatus(t("referenceInvalid"), "warning");
           return;
         }
       } catch (_) {
@@ -90,13 +89,10 @@
       }
       await new Promise(resolve => setTimeout(resolve, 1500));
     }
-    setStatus(
-      "Payment completed, but license provisioning is still pending. Keep this page open or contact support with the transaction ID below.",
-      "warning"
-    );
+    setStatus(t("fulfillmentPending"), "warning");
   };
 
-  const locale = (document.documentElement.lang || navigator.language || "en").slice(0, 2);
+  const locale = String(i18n.language || document.documentElement.lang || navigator.language || "en").slice(0, 2);
   if (String(config.environment).toLowerCase() === "sandbox") {
     window.Paddle.Environment.set("sandbox");
   }
@@ -108,7 +104,7 @@
       const transactionId = event.data && event.data.transaction_id
         ? String(event.data.transaction_id)
         : "";
-      setStatus("Payment received. Waiting for signed server-side fulfillment…", "progress");
+      setStatus(t("paymentReceived"), "progress");
       pollFulfillment(transactionId);
     },
     checkout: {
@@ -124,7 +120,7 @@
     }
   });
 
-  setStatus("Secure checkout ready. Payment details are handled directly by Paddle.", "success");
+  setStatus(t("paymentReady"), "success");
   window.Paddle.Checkout.open({
     items: [{ priceId: config.priceId, quantity: 1 }],
     customData: {
@@ -139,10 +135,10 @@
       if (!value) return;
       try {
         await navigator.clipboard.writeText(value);
-        copyButton.textContent = "Copied";
-        setTimeout(() => { copyButton.textContent = "Copy license key"; }, 1800);
+        copyButton.textContent = t("copied");
+        setTimeout(() => { copyButton.textContent = t("copy"); }, 1800);
       } catch (_) {
-        setStatus("Copy failed. Select the license key manually.", "warning");
+        setStatus(t("copyFailed"), "warning");
       }
     });
   }
