@@ -1,0 +1,62 @@
+name: Site CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate HTML
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class Parser(HTMLParser):
+              pass
+
+          for path in Path('.').glob('*.html'):
+              parser = Parser()
+              parser.feed(path.read_text(encoding='utf-8'))
+              parser.close()
+              print(f'{path}: OK')
+          PY
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check script.js
+          node --check checkout-config.js
+          node --check purchase-i18n.js
+          node --check purchase-link-i18n.js
+          node --check checkout.js
+
+      - name: Check checkout contract
+        run: |
+          grep -q 'https://cdn.paddle.com/paddle/v2/paddle.js' purchase.html
+          grep -q 'api/v1/commerce/fulfillment' checkout.js
+          grep -q 'method: "POST"' checkout.js
+          grep -q 'veylto_checkout_ref' checkout.js
+          grep -q 'environment: "sandbox"' checkout-config.js
+
+      - name: Reject backend secrets in public checkout files
+        run: |
+          set -e
+          if grep -Eiq '(webhooksecret|webhook_secret|commerceprovisioningsecret|commerce_provisioning_secret|paddle[_-]?api[_-]?key|shared[_-]?secret)' \
+            checkout-config.js checkout.js purchase-i18n.js purchase.html; then
+            echo 'Potential server-side secret name found in public checkout files.' >&2
+            exit 1
+          fi
+
+      - name: Diff whitespace check
+        run: git diff --check HEAD^ HEAD
