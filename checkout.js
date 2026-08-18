@@ -55,19 +55,34 @@
     return true;
   };
 
+  const requestFulfillment = () => fetch(
+    `${backendBaseUrl}/api/v1/commerce/fulfillment`,
+    {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ checkoutReference }),
+      cache: "no-store",
+      credentials: "omit",
+      referrerPolicy: "no-referrer"
+    }
+  );
+
   const pollFulfillment = async transactionId => {
     if (transactionNode && transactionId) transactionNode.textContent = transactionId;
     for (let attempt = 0; attempt < 30; attempt += 1) {
       try {
-        const response = await fetch(
-          `${backendBaseUrl}/api/v1/commerce/fulfillment/${encodeURIComponent(checkoutReference)}`,
-          { headers: { "Accept": "application/json" }, cache: "no-store" }
-        );
+        const response = await requestFulfillment();
         if (response.ok) {
           const payload = await response.json();
           if (showFulfillment(payload)) return;
         } else if (response.status === 410) {
           setStatus("The secure license retrieval window has expired. Contact support with the transaction ID below.", "warning");
+          return;
+        } else if (response.status === 400) {
+          setStatus("The secure checkout reference is no longer valid. Contact support with the transaction ID below.", "warning");
           return;
         }
       } catch (_) {
