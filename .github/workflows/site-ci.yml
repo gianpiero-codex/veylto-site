@@ -51,6 +51,15 @@ jobs:
           grep -q 'veylto_checkout_ref' checkout.js
           grep -q 'environment: "sandbox"' checkout-config.js
 
+      - name: Enforce hidden prelaunch checkout
+        run: |
+          grep -q 'enabled: false' checkout-config.js
+          grep -q 'noindex,nofollow,noarchive' purchase.html
+          if grep -q 'purchase.html' index.html; then
+            echo 'Checkout must not be linked from the public landing page before launch.' >&2
+            exit 1
+          fi
+
       - name: Reject backend secrets in public checkout files
         run: |
           set -e
