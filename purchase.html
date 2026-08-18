@@ -6,11 +6,18 @@
   <meta name="description" content="Purchase Veylto securely with card, PayPal and supported wallets through Paddle Checkout.">
   <meta name="theme-color" content="#0b1224">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Buy Veylto — Secure checkout</title>
   <link rel="icon" href="assets/veylto_icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="language.css">
   <link rel="stylesheet" href="checkout.css">
+  <script src="checkout-config.js"></script>
+  <script>
+    if (!window.VEYLTO_CHECKOUT_CONFIG || window.VEYLTO_CHECKOUT_CONFIG.enabled !== true) {
+      window.location.replace("index.html");
+    }
+  </script>
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 </head>
 <body>
@@ -96,7 +103,6 @@
     <div class="container legal-footer"><p data-purchase-i18n="trademark">The term “Etsy” is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p><p>© 2026 Veylto Labs.</p></div>
   </footer>
 
-  <script src="checkout-config.js"></script>
   <script src="purchase-i18n.js"></script>
   <script src="checkout.js"></script>
 </body>
