@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Veylto Social Studio uses TikTok Login Kit and the Content Posting API for seller-controlled draft video uploads.">
+  <meta name="theme-color" content="#0b1224">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://veyltolabs.com/tiktok-integration.html">
+  <title>TikTok Integration — Veylto</title>
+  <link rel="icon" href="assets/veylto_icon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Veylto home">
+        <img class="brand-logo" src="assets/veylto_icon.png" alt="">
+        <span>Veylto</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html">Product</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">TikTok integration</p>
+          <h1>Seller-controlled TikTok draft uploads from Veylto Social Studio.</h1>
+          <p>Veylto is desktop software for Etsy sellers. Its Social Studio lets an authorized seller prepare promotional video content, connect their own TikTok account, review the selected video and then upload that video to TikTok as a draft. Final editing and publishing remain under the seller's control in TikTok.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Products and scopes</p>
+          <h2>Every requested TikTok permission has one visible purpose.</h2>
+          <p>The integration requests only the products and scopes needed for account identification and seller-initiated draft upload.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Login Kit · user.info.basic</h3>
+            <p>The seller chooses Connect TikTok and completes TikTok authorization. Veylto uses <code>user.info.basic</code> to identify the connected account in the interface using basic profile information such as the display name and avatar returned by TikTok.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>Content Posting API · video.upload</h3>
+            <p>After the seller manually selects and reviews a video, Veylto uses <code>video.upload</code> to upload that file to the authorized TikTok account as a draft. The seller then continues the editing and publishing flow inside TikTok.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>No Direct Post</h3>
+            <p>Veylto does not request <code>video.publish</code> for this integration and does not publish TikTok posts automatically. Uploading a draft and publishing a post are intentionally separate actions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">End-to-end flow</p>
+          <h2>What the seller does in Veylto.</h2>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow-step"><span>01</span><h3>Connect TikTok</h3><p>The seller starts TikTok authorization from Veylto and grants the requested permissions to their own TikTok account.</p></article>
+          <article class="workflow-step"><span>02</span><h3>Confirm the account</h3><p>Veylto displays the connected TikTok identity using the basic profile information authorized through <code>user.info.basic</code>.</p></article>
+          <article class="workflow-step"><span>03</span><h3>Select and review a video</h3><p>The seller chooses the local video to upload and reviews the prepared social content before any upload starts.</p></article>
+          <article class="workflow-step"><span>04</span><h3>Upload as a draft</h3><p>The seller explicitly starts the upload. Veylto shows progress and sends the selected file through the Content Posting API using <code>video.upload</code>.</p></article>
+          <article class="workflow-step"><span>05</span><h3>Complete in TikTok</h3><p>The uploaded content remains a TikTok draft. The seller completes any final editing and decides whether and when to publish it from TikTok.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container security-grid">
+        <div class="security-card">
+          <p class="eyebrow">Desktop authorization</p>
+          <h2>The website page is informational, not the OAuth callback.</h2>
+          <p>Veylto uses TikTok's desktop authorization flow. The OAuth response returns to the registered local loopback redirect used by the desktop application. This public page documents the integration for users and reviewers; it is not used as the desktop OAuth redirect endpoint.</p>
+        </div>
+        <div class="checklist" aria-label="TikTok integration controls">
+          <div><span class="check-icon">✓</span><p><strong>Authorized account only</strong><br><span class="check-copy">Veylto acts only after the TikTok user completes authorization for their own account.</span></p></div>
+          <div><span class="check-icon">✓</span><p><strong>Manual upload action</strong><br><span class="check-copy">The seller selects the video and explicitly starts each upload.</span></p></div>
+          <div><span class="check-icon">✓</span><p><strong>No mass posting or scraping</strong><br><span class="check-copy">The integration is not designed to scrape TikTok or automatically mass-post content.</span></p></div>
+          <div><span class="check-icon">✓</span><p><strong>Publishing remains in TikTok</strong><br><span class="check-copy">Draft upload does not silently publish content to the seller's profile.</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Sandbox and review</p>
+          <h2>The review demo uses TikTok Sandbox to show the real Veylto flow.</h2>
+          <p>For TikTok review, a permitted Sandbox target user can be used to demonstrate the complete flow: opening Veylto, connecting TikTok, showing the connected profile identity, selecting a video, starting the upload and confirming that the content reaches TikTok as a draft. LuminareGallery may be used as the test seller account in that demonstration; the TikTok integration itself belongs to the Veylto product.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-card">
+        <div>
+          <p class="eyebrow">Questions</p>
+          <h2>Contact Veylto Labs.</h2>
+          <p>For questions about TikTok integration, privacy or account authorization, contact support@veyltolabs.com.</p>
+        </div>
+        <a class="button button-light" href="mailto:support@veyltolabs.com?subject=Veylto%20TikTok%20integration">Contact support</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/veylto_icon.png" alt=""><span>Veylto</span></a>
+        <p>AI-powered, local-first desktop software for Etsy seller workflows.</p>
+        <p>Veylto is developed under the independent Veylto Labs product brand.</p>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:support@veyltolabs.com">Support</a>
+      </div>
+    </div>
+    <div class="container legal-footer"><p>TikTok is a trademark of its respective owner. Veylto is an independent product and does not claim endorsement or certification by TikTok.</p><p>© <span data-year>2026</span> Veylto Labs.</p></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
