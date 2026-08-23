@@ -1,6 +1,7 @@
 (() => {
   const common = {
     en: {
+      updated: 'Last updated: August 23, 2026',
       availability: 'Limited early access available',
       cta_eyebrow: 'Limited early access',
       cta_title: 'Veylto is available to a selected group of Etsy sellers.',
@@ -10,6 +11,7 @@
       terms_development: 'Veylto is available through a limited early-access program. These terms apply to access requests, evaluation access and any authorized version made available by Veylto.'
     },
     it: {
+      updated: 'Ultimo aggiornamento: 23 agosto 2026',
       availability: 'Accesso anticipato limitato disponibile',
       cta_eyebrow: 'Accesso anticipato limitato',
       cta_title: 'Veylto è disponibile per un gruppo selezionato di venditori Etsy.',
@@ -19,6 +21,7 @@
       terms_development: 'Veylto è disponibile tramite un programma di accesso anticipato limitato. Questi termini si applicano alle richieste di accesso, agli accessi di valutazione e a ogni versione autorizzata resa disponibile da Veylto.'
     },
     es: {
+      updated: 'Última actualización: 23 de agosto de 2026',
       availability: 'Acceso anticipado limitado disponible',
       cta_eyebrow: 'Acceso anticipado limitado',
       cta_title: 'Veylto está disponible para un grupo seleccionado de vendedores de Etsy.',
@@ -28,6 +31,7 @@
       terms_development: 'Veylto está disponible mediante un programa limitado de acceso anticipado. Estos términos se aplican a solicitudes de acceso, acceso de evaluación y cualquier versión autorizada facilitada por Veylto.'
     },
     fr: {
+      updated: 'Dernière mise à jour : 23 août 2026',
       availability: 'Accès anticipé limité disponible',
       cta_eyebrow: 'Accès anticipé limité',
       cta_title: 'Veylto est disponible pour un groupe sélectionné de vendeurs Etsy.',
@@ -37,6 +41,7 @@
       terms_development: 'Veylto est disponible dans le cadre d’un programme d’accès anticipé limité. Ces conditions s’appliquent aux demandes d’accès, aux accès d’évaluation et à toute version autorisée mise à disposition par Veylto.'
     },
     de: {
+      updated: 'Letzte Aktualisierung: 23. August 2026',
       availability: 'Begrenzter Early Access verfügbar',
       cta_eyebrow: 'Begrenzter Early Access',
       cta_title: 'Veylto ist für eine ausgewählte Gruppe von Etsy-Verkäufern verfügbar.',
