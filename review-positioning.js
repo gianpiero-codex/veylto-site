@@ -1,7 +1,7 @@
 (() => {
   const common = {
     en: {
-      updated: 'Last updated: August 23, 2026',
+      updated: 'Last updated: August 31, 2026',
       availability: 'Limited early access available',
       cta_eyebrow: 'Limited early access',
       cta_title: 'Veylto is available to a selected group of Etsy sellers.',
@@ -11,7 +11,7 @@
       terms_development: 'Veylto is available through a limited early-access program. These terms apply to access requests, evaluation access and any authorized version made available by Veylto.'
     },
     it: {
-      updated: 'Ultimo aggiornamento: 23 agosto 2026',
+      updated: 'Ultimo aggiornamento: 31 agosto 2026',
       availability: 'Accesso anticipato limitato disponibile',
       cta_eyebrow: 'Accesso anticipato limitato',
       cta_title: 'Veylto è disponibile per un gruppo selezionato di venditori Etsy.',
@@ -21,7 +21,7 @@
       terms_development: 'Veylto è disponibile tramite un programma di accesso anticipato limitato. Questi termini si applicano alle richieste di accesso, agli accessi di valutazione e a ogni versione autorizzata resa disponibile da Veylto.'
     },
     es: {
-      updated: 'Última actualización: 23 de agosto de 2026',
+      updated: 'Última actualización: 31 de agosto de 2026',
       availability: 'Acceso anticipado limitado disponible',
       cta_eyebrow: 'Acceso anticipado limitado',
       cta_title: 'Veylto está disponible para un grupo seleccionado de vendedores de Etsy.',
@@ -31,7 +31,7 @@
       terms_development: 'Veylto está disponible mediante un programa limitado de acceso anticipado. Estos términos se aplican a solicitudes de acceso, acceso de evaluación y cualquier versión autorizada facilitada por Veylto.'
     },
     fr: {
-      updated: 'Dernière mise à jour : 23 août 2026',
+      updated: 'Dernière mise à jour : 31 août 2026',
       availability: 'Accès anticipé limité disponible',
       cta_eyebrow: 'Accès anticipé limité',
       cta_title: 'Veylto est disponible pour un groupe sélectionné de vendeurs Etsy.',
@@ -41,7 +41,7 @@
       terms_development: 'Veylto est disponible dans le cadre d’un programme d’accès anticipé limité. Ces conditions s’appliquent aux demandes d’accès, aux accès d’évaluation et à toute version autorisée mise à disposition par Veylto.'
     },
     de: {
-      updated: 'Letzte Aktualisierung: 23. August 2026',
+      updated: 'Letzte Aktualisierung: 31. August 2026',
       availability: 'Begrenzter Early Access verfügbar',
       cta_eyebrow: 'Begrenzter Early Access',
       cta_title: 'Veylto ist für eine ausgewählte Gruppe von Etsy-Verkäufern verfügbar.',
@@ -76,14 +76,16 @@
 (() => {
   'use strict';
 
+  const API_URL = 'https://script.google.com/macros/s/AKfycbzgI89EH9Uc51H56u3dcKVElcC6o5b3wc-DveioXm13-IIRUxIXeA7cDnFLgN4KWWkUvQ/exec';
   const CONSENT_KEY = 'veylto_cookie_consent_v1';
-  const VERSION = 1;
+  const SESSION_KEY = 'veylto_visit_counted';
+  const VERSION = 2;
   const supported = ['en', 'it', 'es', 'fr', 'de'];
   const copy = {
     en: {
       title: 'Cookie & privacy choices',
-      text: 'Veylto uses essential browser storage to remember your language and privacy choice. This website currently does not use advertising or analytics cookies. You can accept preferences or continue with essential storage only.',
-      accept: 'Accept preferences',
+      text: 'Veylto uses essential browser storage to remember your language and privacy choice. With your consent, a lightweight visitor counter sends page path, page title, domain and timezone to our Google Apps Script endpoint for aggregated site statistics. No advertising tracking is enabled.',
+      accept: 'Accept analytics',
       reject: 'Essential only',
       privacy: 'Privacy policy',
       settings: 'Cookie settings',
@@ -91,8 +93,8 @@
     },
     it: {
       title: 'Cookie e preferenze privacy',
-      text: 'Veylto usa archiviazione essenziale del browser per ricordare lingua e scelta privacy. Questo sito attualmente non usa cookie pubblicitari o analytics. Puoi accettare le preferenze oppure continuare con la sola archiviazione essenziale.',
-      accept: 'Accetta preferenze',
+      text: 'Veylto usa archiviazione essenziale del browser per ricordare lingua e scelta privacy. Con il tuo consenso, un contatore visite leggero invia percorso pagina, titolo, dominio e fuso orario al nostro endpoint Google Apps Script per statistiche aggregate del sito. Non è attivo alcun tracciamento pubblicitario.',
+      accept: 'Accetta analytics',
       reject: 'Solo essenziali',
       privacy: 'Informativa privacy',
       settings: 'Impostazioni cookie',
@@ -100,8 +102,8 @@
     },
     es: {
       title: 'Cookies y privacidad',
-      text: 'Veylto usa almacenamiento esencial del navegador para recordar el idioma y tu elección de privacidad. Este sitio no usa actualmente cookies publicitarias ni de analítica. Puedes aceptar preferencias o continuar solo con almacenamiento esencial.',
-      accept: 'Aceptar preferencias',
+      text: 'Veylto usa almacenamiento esencial del navegador para recordar el idioma y tu elección de privacidad. Con tu consentimiento, un contador ligero envía la ruta y el título de la página, el dominio y la zona horaria a nuestro endpoint de Google Apps Script para estadísticas agregadas. No se activa seguimiento publicitario.',
+      accept: 'Aceptar analítica',
       reject: 'Solo esenciales',
       privacy: 'Política de privacidad',
       settings: 'Configurar cookies',
@@ -109,8 +111,8 @@
     },
     fr: {
       title: 'Cookies et confidentialité',
-      text: 'Veylto utilise le stockage essentiel du navigateur pour mémoriser la langue et votre choix de confidentialité. Ce site n’utilise actuellement aucun cookie publicitaire ou analytique. Vous pouvez accepter les préférences ou continuer avec le stockage essentiel uniquement.',
-      accept: 'Accepter les préférences',
+      text: 'Veylto utilise le stockage essentiel du navigateur pour mémoriser la langue et votre choix de confidentialité. Avec votre consentement, un compteur léger envoie le chemin et le titre de la page, le domaine et le fuseau horaire à notre endpoint Google Apps Script pour des statistiques agrégées. Aucun suivi publicitaire n’est activé.',
+      accept: 'Accepter l’analyse',
       reject: 'Essentiels uniquement',
       privacy: 'Politique de confidentialité',
       settings: 'Paramètres des cookies',
@@ -118,8 +120,8 @@
     },
     de: {
       title: 'Cookies und Datenschutz',
-      text: 'Veylto verwendet notwendigen Browser-Speicher, um Sprache und Datenschutzauswahl zu speichern. Diese Website verwendet derzeit keine Werbe- oder Analyse-Cookies. Sie können Präferenzen akzeptieren oder nur mit notwendigem Speicher fortfahren.',
-      accept: 'Präferenzen akzeptieren',
+      text: 'Veylto verwendet notwendigen Browser-Speicher, um Sprache und Datenschutzauswahl zu speichern. Mit Ihrer Einwilligung sendet ein einfacher Besucherzähler Seitenpfad, Seitentitel, Domain und Zeitzone an unseren Google-Apps-Script-Endpunkt für aggregierte Website-Statistiken. Es ist kein Werbetracking aktiviert.',
+      accept: 'Analytics akzeptieren',
       reject: 'Nur erforderlich',
       privacy: 'Datenschutzerklärung',
       settings: 'Cookie-Einstellungen',
@@ -144,7 +146,7 @@
     if (!raw) return null;
     try {
       const parsed = JSON.parse(raw);
-      return parsed && parsed.version === VERSION && typeof parsed.preferences === 'boolean'
+      return parsed && parsed.version === VERSION && typeof parsed.analytics === 'boolean'
         ? parsed
         : null;
     } catch (_) {
@@ -152,17 +154,54 @@
     }
   };
 
-  const saveConsent = (preferences) => {
+  const saveConsent = (analytics) => {
     const value = {
       version: VERSION,
-      preferences: Boolean(preferences),
-      analytics: false,
+      preferences: Boolean(analytics),
+      analytics: Boolean(analytics),
       advertising: false,
       updated_at: new Date().toISOString()
     };
     safeSet(CONSENT_KEY, JSON.stringify(value));
     window.dispatchEvent(new CustomEvent('veylto:consent-changed', { detail: value }));
     return value;
+  };
+
+  const getDomain = () => {
+    const host = window.location.hostname || 'veyltolabs.com';
+    if (host === 'localhost' || host === '127.0.0.1') return 'veyltolabs.com';
+    return host.replace(/^www\./, '');
+  };
+
+  const getTimezone = () => {
+    try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; }
+    catch (_) { return 'UTC'; }
+  };
+
+  const hasSessionVisit = () => {
+    try { return window.sessionStorage.getItem(SESSION_KEY) === '1'; }
+    catch (_) { return false; }
+  };
+
+  const markSessionVisit = () => {
+    try { window.sessionStorage.setItem(SESSION_KEY, '1'); } catch (_) {}
+  };
+
+  const requestCounter = () => {
+    const consent = getConsent();
+    if (!consent || consent.analytics !== true || hasSessionVisit()) return null;
+    markSessionVisit();
+    return fetch(API_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      keepalive: true,
+      body: JSON.stringify({
+        domain: getDomain(),
+        timezone: getTimezone(),
+        page_path: window.location.pathname || '/',
+        page_title: document.title || 'Veylto'
+      })
+    });
   };
 
   const injectStyles = () => {
@@ -226,6 +265,7 @@
         saveConsent(true);
         banner.hidden = true;
         settingsButton.hidden = false;
+        requestCounter();
       });
     }
 
@@ -256,12 +296,26 @@
     settingsButton.hidden = forceOpen || !consent;
   };
 
+  const init = () => {
+    render(false);
+    const request = requestCounter();
+    if (request && request.catch) request.catch(() => {});
+  };
+
   window.VeyltoCookieConsent = {
     get: getConsent,
     open: () => render(true),
-    acceptPreferences: () => saveConsent(true),
+    acceptAnalytics: () => { saveConsent(true); return requestCounter(); },
+    acceptPreferences: () => { saveConsent(true); return requestCounter(); },
     essentialOnly: () => saveConsent(false)
   };
+
+  window.addEventListener('veylto:consent-changed', (event) => {
+    if (event.detail && event.detail.analytics === true) {
+      const request = requestCounter();
+      if (request && request.catch) request.catch(() => {});
+    }
+  });
 
   new MutationObserver(() => render(false)).observe(document.documentElement, {
     attributes: true,
@@ -269,12 +323,16 @@
   });
 
   window.addEventListener('storage', (event) => {
-    if (event.key === CONSENT_KEY || event.key === 'veylto-site-language') render(false);
+    if (event.key === CONSENT_KEY || event.key === 'veylto-site-language') {
+      render(false);
+      const request = requestCounter();
+      if (request && request.catch) request.catch(() => {});
+    }
   });
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => render(false));
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    render(false);
+    init();
   }
 })();
