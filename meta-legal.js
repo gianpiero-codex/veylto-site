@@ -69,8 +69,67 @@
     }
   };
 
+
+  const pageText = {
+    en: {
+      privacy_meta_title: "Facebook and Instagram authorization",
+      privacy_meta_p1: "When Meta features are enabled, Veylto may connect to Facebook Pages and professional Instagram accounts through Meta’s authorization flow. Veylto may process account identifiers, Page and Instagram professional account identifiers, basic profile information, authorized permissions, media selected by the seller, captions and publication status.",
+      privacy_meta_p2: "Veylto does not request Facebook or Instagram passwords. Application secrets are protected by Veylto’s backend. Meta access is used only to connect the seller’s own accounts and perform actions explicitly requested by the seller.",
+      privacy_meta_p3: "Veylto does not access unrelated accounts, scrape Facebook or Instagram, publish content without the seller’s explicit action, or use Meta data for unrelated purposes.",
+      privacy_meta_p4: "Facebook and Instagram access can be revoked through the relevant Meta account settings and, where available, through Veylto. Data deletion requests are described at <a href=\"data-deletion/index.html\">Data deletion</a>.",
+      terms_meta_title: "Facebook and Instagram integration",
+      terms_meta_p1: "Veylto may allow users to connect Facebook Pages and professional Instagram accounts through Meta OAuth and use authorized Meta API features to prepare or publish content selected by the user.",
+      terms_meta_p2: "Users may connect only Pages and Instagram accounts they own or are authorized to manage. Users are responsible for reviewing content before publication and for complying with Meta’s terms, policies, community standards and applicable law.",
+      terms_meta_p3: "Veylto is an independent product and is not sponsored, endorsed or certified by Meta, Facebook or Instagram. Users may revoke Meta access at any time through their account settings."
+    },
+    it: {
+      privacy_meta_title: "Autorizzazione Facebook e Instagram",
+      privacy_meta_p1: "Quando le funzionalità Meta sono abilitate, Veylto può collegarsi a Pagine Facebook e account Instagram professionali tramite il flusso di autorizzazione Meta. Veylto può trattare identificativi dell’account, della Pagina e dell’account Instagram professionale, informazioni di base del profilo, permessi autorizzati, media selezionati dal venditore, caption e stato della pubblicazione.",
+      privacy_meta_p2: "Veylto non richiede le password Facebook o Instagram. I secret applicativi sono protetti dal backend Veylto. L’accesso Meta viene utilizzato solo per collegare gli account del venditore ed eseguire azioni richieste esplicitamente dal venditore.",
+      privacy_meta_p3: "Veylto non accede ad account non collegati, non effettua scraping di Facebook o Instagram, non pubblica contenuti senza l’azione esplicita del venditore e non utilizza i dati Meta per finalità estranee.",
+      privacy_meta_p4: "L’accesso a Facebook e Instagram può essere revocato dalle impostazioni del relativo account Meta e, quando disponibile, tramite Veylto. Le richieste di cancellazione dati sono descritte nella pagina <a href=\"data-deletion/index.html\">Cancellazione dati</a>.",
+      terms_meta_title: "Integrazione Facebook e Instagram",
+      terms_meta_p1: "Veylto può consentire agli utenti di collegare Pagine Facebook e account Instagram professionali tramite Meta OAuth e utilizzare funzionalità autorizzate delle API Meta per preparare o pubblicare contenuti selezionati dall’utente.",
+      terms_meta_p2: "Gli utenti possono collegare solo Pagine e account Instagram di cui sono titolari o che sono autorizzati a gestire. Gli utenti sono responsabili della verifica dei contenuti prima della pubblicazione e del rispetto dei termini, delle policy, degli standard della community di Meta e della legge applicabile.",
+      terms_meta_p3: "Veylto è un prodotto indipendente e non è sponsorizzato, approvato o certificato da Meta, Facebook o Instagram. Gli utenti possono revocare l’accesso Meta in qualsiasi momento dalle impostazioni del proprio account."
+    },
+    es: {
+      privacy_meta_title: "Autorización de Facebook e Instagram",
+      privacy_meta_p1: "Cuando las funciones de Meta están habilitadas, Veylto puede conectarse a páginas de Facebook y cuentas profesionales de Instagram mediante el flujo de autorización de Meta. Veylto puede tratar identificadores de cuenta, página y cuenta profesional de Instagram, información básica del perfil, permisos autorizados, medios seleccionados por el vendedor, textos y estado de publicación.",
+      privacy_meta_p2: "Veylto no solicita contraseñas de Facebook o Instagram. Los secretos de la aplicación están protegidos por el backend de Veylto. El acceso a Meta se utiliza únicamente para conectar las cuentas del vendedor y realizar acciones solicitadas expresamente.",
+      privacy_meta_p3: "Veylto no accede a cuentas no relacionadas, no realiza scraping de Facebook o Instagram, no publica contenido sin la acción explícita del vendedor ni utiliza los datos de Meta para fines ajenos.",
+      privacy_meta_p4: "El acceso a Facebook e Instagram puede revocarse desde la configuración de la cuenta Meta correspondiente y, cuando esté disponible, desde Veylto. Las solicitudes de eliminación se describen en la página de <a href=\"data-deletion/index.html\">eliminación de datos</a>.",
+      terms_meta_title: "Integración de Facebook e Instagram",
+      terms_meta_p1: "Veylto puede permitir conectar páginas de Facebook y cuentas profesionales de Instagram mediante Meta OAuth y utilizar funciones autorizadas de las API de Meta para preparar o publicar contenido seleccionado por el usuario.",
+      terms_meta_p2: "Los usuarios solo pueden conectar páginas y cuentas de Instagram que posean o estén autorizados a gestionar. Son responsables de revisar el contenido antes de publicarlo y de cumplir las condiciones, políticas y normas de la comunidad de Meta y la legislación aplicable.",
+      terms_meta_p3: "Veylto es un producto independiente y no está patrocinado, respaldado ni certificado por Meta, Facebook o Instagram. Los usuarios pueden revocar el acceso a Meta en cualquier momento desde la configuración de su cuenta."
+    },
+    fr: {
+      privacy_meta_title: "Autorisation Facebook et Instagram",
+      privacy_meta_p1: "Lorsque les fonctions Meta sont activées, Veylto peut se connecter aux Pages Facebook et aux comptes Instagram professionnels via le flux d’autorisation Meta. Veylto peut traiter les identifiants du compte, de la Page et du compte Instagram professionnel, les informations de profil de base, les autorisations accordées, les médias sélectionnés par le vendeur, les légendes et le statut de publication.",
+      privacy_meta_p2: "Veylto ne demande pas les mots de passe Facebook ou Instagram. Les secrets de l’application sont protégés par le backend Veylto. L’accès Meta sert uniquement à connecter les comptes du vendeur et à exécuter les actions demandées explicitement.",
+      privacy_meta_p3: "Veylto n’accède pas aux comptes sans rapport, n’effectue pas de scraping de Facebook ou Instagram, ne publie pas sans l’action explicite du vendeur et n’utilise pas les données Meta à d’autres fins.",
+      privacy_meta_p4: "L’accès à Facebook et Instagram peut être révoqué dans les paramètres du compte Meta concerné et, lorsque disponible, via Veylto. Les demandes de suppression sont décrites sur la page de <a href=\"data-deletion/index.html\">suppression des données</a>.",
+      terms_meta_title: "Intégration Facebook et Instagram",
+      terms_meta_p1: "Veylto peut permettre de connecter des Pages Facebook et des comptes Instagram professionnels via Meta OAuth et d’utiliser les fonctions autorisées des API Meta pour préparer ou publier du contenu sélectionné par l’utilisateur.",
+      terms_meta_p2: "Les utilisateurs ne peuvent connecter que les Pages et comptes Instagram qu’ils possèdent ou qu’ils sont autorisés à gérer. Ils sont responsables de la vérification du contenu avant publication et du respect des conditions, politiques et standards de la communauté Meta ainsi que de la loi applicable.",
+      terms_meta_p3: "Veylto est un produit indépendant et n’est ni sponsorisé, ni approuvé, ni certifié par Meta, Facebook ou Instagram. Les utilisateurs peuvent révoquer l’accès Meta à tout moment dans les paramètres de leur compte."
+    },
+    de: {
+      privacy_meta_title: "Autorisierung für Facebook und Instagram",
+      privacy_meta_p1: "Wenn Meta-Funktionen aktiviert sind, kann Veylto über den Meta-Autorisierungsablauf eine Verbindung zu Facebook-Seiten und professionellen Instagram-Konten herstellen. Veylto kann Konto-, Seiten- und Instagram-Konto-IDs, grundlegende Profilinformationen, autorisierte Berechtigungen, vom Nutzer ausgewählte Medien, Bildunterschriften und Veröffentlichungsstatus verarbeiten.",
+      privacy_meta_p2: "Veylto fordert keine Facebook- oder Instagram-Passwörter an. Anwendungsschlüssel werden durch das Veylto-Backend geschützt. Der Meta-Zugriff wird nur verwendet, um die eigenen Konten des Verkäufers zu verbinden und ausdrücklich angeforderte Aktionen auszuführen.",
+      privacy_meta_p3: "Veylto greift nicht auf fremde Konten zu, betreibt kein Scraping von Facebook oder Instagram, veröffentlicht nicht ohne ausdrückliche Aktion des Verkäufers und verwendet Meta-Daten nicht für andere Zwecke.",
+      privacy_meta_p4: "Der Facebook- und Instagram-Zugriff kann in den jeweiligen Meta-Kontoeinstellungen und, sofern verfügbar, über Veylto widerrufen werden. Informationen zur Löschung stehen auf der Seite <a href=\"data-deletion/index.html\">Datenlöschung</a>.",
+      terms_meta_title: "Facebook- und Instagram-Integration",
+      terms_meta_p1: "Veylto kann Nutzern ermöglichen, Facebook-Seiten und professionelle Instagram-Konten über Meta OAuth zu verbinden und autorisierte Meta-API-Funktionen für vom Nutzer ausgewählte Inhalte zu verwenden.",
+      terms_meta_p2: "Nutzer dürfen nur Seiten und Instagram-Konten verbinden, die ihnen gehören oder deren Verwaltung sie autorisiert sind. Sie sind für die Prüfung der Inhalte vor der Veröffentlichung und die Einhaltung der Meta-Bedingungen, Richtlinien, Community-Standards und geltenden Gesetze verantwortlich.",
+      terms_meta_p3: "Veylto ist ein unabhängiges Produkt und wird nicht von Meta, Facebook oder Instagram gesponsert, unterstützt oder zertifiziert. Nutzer können den Meta-Zugriff jederzeit in ihren Kontoeinstellungen widerrufen."
+    }
+  };
+
   const language = (new URLSearchParams(window.location.search).get("lang") || window.localStorage.getItem("veylto-site-language") || (navigator.language || "en").slice(0, 2)).toLowerCase();
-  const dictionary = common[language] || common.en;
+  const dictionary = { ...(common[language] || common.en), ...(pageText[language] || pageText.en) };
   document.documentElement.lang = common[language] ? language : "en";
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.getAttribute("data-i18n");
